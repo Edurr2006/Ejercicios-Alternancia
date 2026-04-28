@@ -430,3 +430,83 @@ body {
   color: var(--text-muted);
   text-align: center;
 }
+
+/* ===== MODO OSCURO / CLARO (Ejercicio 5) ===== */
+
+/* Tema oscuro (por defecto) */
+.theme-dark {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --error: #ef4444;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Tema claro */
+.theme-light {
+  --primary: #4f46e5;
+  --primary-hover: #3730a3;
+  --bg: #f1f5f9;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --error: #dc2626;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Ajustes de inputs en modo claro */
+.theme-light .form-group input,
+.theme-light .form-group textarea,
+.theme-light .blog-input,
+.theme-light .blog-textarea {
+  background: rgba(241, 245, 249, 0.8);
+  color: var(--text);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Navbar en modo claro */
+.theme-light .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de cambio de tema */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  padding: 0.4rem 0.9rem;
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--text);
+  border-color: var(--primary);
+}
+
+.theme-light .theme-toggle-btn {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos visibles en modo claro */
+.theme-light .page-content h1 {
+  background: linear-gradient(to bottom right, #1e293b, #475569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-light .blog-section h2,
+.theme-light .post-header h3,
+.theme-light .card h3 {
+  color: #1e293b;
+}
