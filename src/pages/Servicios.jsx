@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import Blog from '../componentes/Blog.jsx';
 
 const Servicios = () => {
-    // Array de imágenes (puedes cambiarlas por las que quieras)
     const imagenes = [
         { id: 1, url: 'https://picsum.photos/id/10/800/500', thumb: 'https://picsum.photos/id/10/200/150', alt: 'Paisaje de montaña' },
         { id: 2, url: 'https://picsum.photos/id/20/800/500', thumb: 'https://picsum.photos/id/20/200/150', alt: 'Escritorio de trabajo' },
@@ -15,16 +15,16 @@ const Servicios = () => {
     return (
         <div className="page-content">
             <h1>Nuestros Servicios</h1>
-            <p>Explora nuestra galería interactiva de trabajos realizados.</p>
+            <p>Explora nuestra galería interactiva y nuestro blog de novedades.</p>
 
+            {/* Galería de imágenes */}
             <div className="gallery-container">
-                {/* Imagen Principal con animación */}
                 <div className="main-image-wrapper">
                     <img
                         src={selectedImg.url}
                         alt={selectedImg.alt}
                         className="main-image fade-in"
-                        key={selectedImg.id} // La 'key' fuerza la animación al cambiar
+                        key={selectedImg.id}
                     />
                     <div className="image-caption">{selectedImg.alt}</div>
                 </div>
@@ -43,10 +43,8 @@ const Servicios = () => {
                 </div>
             </div>
 
-            <div className="card">
-                <h3>¿Necesitas un proyecto similar?</h3>
-                <p>Nuestra galería muestra solo una parte de lo que podemos crear para ti.</p>
-            </div>
+            {/* Blog de posts */}
+            <Blog />
         </div>
     );
 };
