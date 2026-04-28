@@ -1,4 +1,4 @@
-/* VARIABLES GLOBALES Y RESET */
+/* ===== VARIABLES GLOBALES ===== */
 :root {
   --primary: #6366f1;
   --primary-hover: #4f46e5;
@@ -9,6 +9,7 @@
   --error: #ef4444;
 }
 
+/* ===== RESET Y BASE ===== */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -17,20 +18,24 @@ body {
   line-height: 1.6;
 }
 
-/* CONTENEDOR PRINCIPAL */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* NAVEGACIÓN (NAVBAR) */
+/* ===== NAVBAR ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -63,7 +68,7 @@ body {
   font-weight: 700;
 }
 
-/* CONTENIDO DE PÁGINAS */
+/* ===== CONTENIDO PÁGINAS ===== */
 .main-content {
   flex: 1;
   padding: 3rem 5%;
@@ -80,16 +85,20 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.page-content p {
+  color: var(--text-muted);
+}
+
 .card {
   background: var(--card-bg);
   padding: 2rem;
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 2rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* ESTILOS DEL FORMULARIO (Ejercicio 2) */
+/* ===== FORMULARIO (Ejercicio 2) ===== */
 .contact-form {
   max-width: 550px;
   background: var(--card-bg);
@@ -97,7 +106,7 @@ body {
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 2rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.4);
 }
 
 .form-group {
@@ -122,6 +131,7 @@ body {
   color: white;
   outline: none;
   font-size: 1rem;
+  font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -137,7 +147,6 @@ body {
   resize: vertical;
 }
 
-/* Estilos de Error */
 .input-error {
   border-color: var(--error) !important;
 }
@@ -149,7 +158,6 @@ body {
   font-weight: 500;
 }
 
-/* Botón de Envío */
 .submit-btn {
   background: var(--primary);
   color: white;
@@ -170,20 +178,100 @@ body {
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
-.submit-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
-
 .submit-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  filter: grayscale(1);
 }
 
-/* PIE DE PÁGINA */
+/* ===== GALERÍA (Ejercicio 3) ===== */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.main-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 1.5rem;
+  font-weight: 500;
+}
+
+.thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.thumb-item {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.thumb-item:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.active-thumb {
+  border-color: var(--primary);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== PIE DE PÁGINA ===== */
 .footer {
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
   font-size: 0.85rem;
   color: var(--text-muted);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
